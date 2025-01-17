@@ -3,8 +3,6 @@ import "@nomicfoundation/hardhat-toolbox";
 import 'solidity-coverage'
 import "hardhat-gas-reporter"
 
-const PRIVATE_KEY = '';
-
 const config: HardhatUserConfig = {
   solidity: "0.8.24",
   networks: {
@@ -19,8 +17,7 @@ const config: HardhatUserConfig = {
     },
     fantom: {
       url: "https://rpc.ftm.tools/",
-      chainId: 250,
-      accounts: [`${PRIVATE_KEY}`]
+      chainId: 250
     }
   },
   etherscan: {
