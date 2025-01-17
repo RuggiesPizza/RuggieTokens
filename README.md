@@ -1,4 +1,4 @@
-<img src="https://github.com/RuggiesPizza/RuggieTokens/blob/dev/images/ruggEtext.png" width="400">
+<img src="https://github.com/RuggiesPizza/RuggieTokens/blob/dev/images/ruggEtext.png" width="750">
 
 Ruggie's Pizza token contracts include; $RUGGIE and $RTARD. The ERC-20 token $RUGGIE came first, with it's easter egg rugpull function.
 To raise liquidity for $RUGGIE, the ERC-721 $RTARD was created. $RTARD comes with it's own easter egg rugpull function. All 420 $RTARD NFT's
