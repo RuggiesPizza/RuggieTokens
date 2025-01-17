@@ -1,7 +1,7 @@
 import { expect } from "chai";
 import { ethers } from "hardhat";
 
-describe("Metadata Test", function () {
+describe("Fantom Access Test", function () {
   let RugTARDS: any;
   let Ruggie: any;
   let owner: any;
@@ -24,14 +24,13 @@ describe("Metadata Test", function () {
     await RugTARDS.waitForDeployment();
   });
 
-
-  it("Validate Rugpull price can't be under", async function () {
-    let override = {value: ethers.parseEther("30")};
-    await RugTARDS.connect(addr1).mint(1, override);
-
-    await RugTARDS.updateHiddenTraits();
-
-    override = {value: ethers.parseEther("0.25")};
-    await expect(RugTARDS.rugpull(1, override)).to.be.revertedWithCustomError(RugTARDS, 'InvalidPayment()');
+  it("Verify Update Access", async function () {
+    await expect(RugTARDS.connect(addr1).updateBeneficiary(await owner.getAddress())).to.be.reverted;
+    await expect(RugTARDS.connect(addr1).updateHiddenTraits()).to.be.reverted;
+    await expect(RugTARDS.connect(addr1).updateMintStatus()).to.be.reverted;
+    await expect(RugTARDS.connect(addr1).updatePrice(5, 1)).to.be.reverted;
+    await expect(RugTARDS.connect(addr1).updateURI('', '')).to.be.reverted;
+    await expect(RugTARDS.connect(addr1).withdraw()).to.be.reverted;
   });
+
 });

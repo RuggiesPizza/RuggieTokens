@@ -1,7 +1,7 @@
 import { expect } from "chai";
 import { ethers } from "hardhat";
 
-describe("Payment Test", function () {
+describe("Fantom Payment Test", function () {
   let RugTARDS: any;
   let Ruggie: any;
   let owner: any;

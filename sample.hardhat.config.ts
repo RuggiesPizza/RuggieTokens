@@ -1,9 +1,6 @@
 import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
 import 'solidity-coverage'
-import "hardhat-gas-reporter"
-
-const PRIVATE_KEY = '';
 
 const config: HardhatUserConfig = {
   solidity: "0.8.24",
@@ -19,19 +16,13 @@ const config: HardhatUserConfig = {
     },
     fantom: {
       url: "https://rpc.ftm.tools/",
-      chainId: 250,
-      accounts: [`${PRIVATE_KEY}`]
+      chainId: 250
     }
   },
   etherscan: {
     // Your API key for Etherscan
     // Obtain one at https://etherscan.io/
     apiKey: ""
-  },
-  gasReporter: {
-    currency: 'USD',
-    L1: "fantom",
-    coinmarketcap: "",
   }
 };
 

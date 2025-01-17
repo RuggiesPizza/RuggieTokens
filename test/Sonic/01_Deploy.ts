@@ -1,7 +1,7 @@
 import { expect } from "chai";
 import { ethers } from "hardhat";
 
-describe("Deployment Test", function () {
+describe("Sonic Deployment Test", function () {
   let RugTARDS: any;
   let Ruggie: any;
   let owner: any;
@@ -9,19 +9,26 @@ describe("Deployment Test", function () {
   let addr2: any;
   let addrs: any;
 
+  let ownerAddress: any;
+  let ruggieAddress: any;
+
   beforeEach(async function() {
-    RugTARDS = await ethers.getContractFactory("RugTARDS");
-    Ruggie = await ethers.getContractFactory("Ruggie");
+    RugTARDS = await ethers.getContractFactory("RugTARDS2");
+    Ruggie = await ethers.getContractFactory("Ruggie2");
 
     [owner, addr1, addr2, ...addrs] = await ethers.getSigners();
+    ownerAddress= await owner.getAddress();
 
     //Deploy Ruggie.sol
     Ruggie = await Ruggie.deploy();
     await Ruggie.waitForDeployment();
-    
+    ruggieAddress = await Ruggie.getAddress();
+
     //Deploy RugTARDS.sol
-    RugTARDS = await RugTARDS.deploy(Ruggie.getAddress());
+    RugTARDS = await RugTARDS.deploy(ownerAddress);
     await RugTARDS.waitForDeployment();
+
+    await RugTARDS.updateURI('https://ruggiespizza.com/rugtards/','https://ruggiespizza.com/rugtards/rugged/rugged.json');
   });
 
   it("Verify Deployment", async function () {
@@ -29,7 +36,7 @@ describe("Deployment Test", function () {
     // Total Supply
     expect(await Ruggie.totalSupply()).to.equal(ethers.parseEther("2222222222"));
     // Null Address owns contract
-    expect(await Ruggie.owner()).to.equal('0x0000000000000000000000000000000000000000');
+    expect(await Ruggie.owner()).to.equal(ownerAddress);
     // Deployer owns full supply
     expect(await Ruggie.balanceOf(owner.getAddress())).to.equal(ethers.parseEther("2222222222"));
 
@@ -39,23 +46,10 @@ describe("Deployment Test", function () {
     expect(await RugTARDS.symbol()).to.equal('RTARD');
     expect(await RugTARDS.owner()).to.equal(await owner.getAddress());
     expect(await RugTARDS.maxSupply()).to.equal(420);
-    expect(await RugTARDS.hiddenURI()).to.equal("https://ruggiespizza.com/rugtards/hidden/hidden.json");
     expect(await RugTARDS.ruggedURI()).to.equal("https://ruggiespizza.com/rugtards/rugged/rugged.json");
-    expect(await RugTARDS.ruggieContract()).to.equal(await Ruggie.getAddress());
-    expect(await RugTARDS.rugged(1)).to.equal(false);
-  });
-
-  it("Verify Mint Status", async function () {
-    expect(await RugTARDS.mintOpen()).to.equal(true);
-    await RugTARDS.updateMintStatus();
-    expect(await RugTARDS.mintOpen()).to.equal(false);
-  });
-
-  it("Verify Price Switch", async function () {
-    expect(await RugTARDS.mintPrice()).to.equal(ethers.parseEther("30"));
-    expect(await RugTARDS.ruggiePrice()).to.equal(ethers.parseEther("20"));
-    await RugTARDS.updatePrice(ethers.parseEther("20"), ethers.parseEther("10"));
-    expect(await RugTARDS.mintPrice()).to.equal(ethers.parseEther("20"));
-    expect(await RugTARDS.ruggiePrice()).to.equal(ethers.parseEther("10"));
+    let rtard1 = await RugTARDS.rugged(1);
+    expect(rtard1[0]).to.be.false;
+    expect(rtard1[1]).to.equal(0);
+    expect(rtard1[2]).to.equal('0x0000000000000000000000000000000000000000');
   });
 });

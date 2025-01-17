@@ -14,5 +14,8 @@ hardhat.config.ts
 /coverage
 /coverage.json
 
+# IDE
+.vscode
+
 # Hardhat Ignition default folder for deployments against a local node
 ignition/deployments/chain-31337
