@@ -1,29 +1,28 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.24;
 
-import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
-import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol";
-import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Permit.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
+import {ERC20, ERC20Burnable} from "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol";
+import {ERC20Permit} from "@openzeppelin/contracts/token/ERC20/extensions/ERC20Permit.sol";
+import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 
 contract Ruggie2 is ERC20, ERC20Burnable, ERC20Permit, Ownable {
 
     /// @notice Token Information
-    uint256 public constant _totalSupply = 2222222222 ether;
+    uint256 public constant TOTAL_SUPPLY = 2222222222 ether;
     // Token Symbol
-    string public constant _symbol = "RUGGIE";
+    string public constant SYMBOL = "RUGGIE";
     // Token Name
-    string public constant _name = "Ruggie's Pizza";
+    string public constant TOKEN_NAME = "Ruggie's Pizza";
 
     event RugPulled(address indexed from);
 
     constructor()
-        ERC20(_name, _symbol)
-        ERC20Permit(_name)
+        ERC20(TOKEN_NAME, SYMBOL)
+        ERC20Permit(TOKEN_NAME)
         Ownable(_msgSender())
     {
         // Mint the total supply, no minting will be allowed after this
-        _mint(_msgSender(), _totalSupply);
+        _mint(_msgSender(), TOTAL_SUPPLY);
     }
 
     /// @notice Rug Pull the entire project

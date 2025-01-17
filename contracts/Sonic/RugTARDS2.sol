@@ -3,14 +3,13 @@
 pragma solidity ^0.8.24;
 
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
-import {ERC721, Strings} from "@openzeppelin/contracts/token/ERC721/ERC721.sol";
-import {ERC721Enumerable} from "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
+import {ERC721Enumerable, ERC721} from "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
 import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 // Local Imports
 import {RTARD} from "./Structs/RTARD.sol";
 
-contract RugTARDS2 is ERC721, Ownable {
+contract RugTARDS2 is ERC721, ERC721Enumerable, Ownable {
     /// @dev Base Token URI
     string public baseURI;
     /// @dev Contract Beneficiary
