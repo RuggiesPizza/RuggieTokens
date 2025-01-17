@@ -32,7 +32,6 @@ contract RugTARDS2 is ERC721Enumerable, Ownable {
 
     // Custom Events
     event Rugged(uint256 tokenId, address rugger);
-    event StatusChange(bool newStatus);
 
     constructor(address benef) ERC721("RugTARDS", "RTARD") Ownable(_msgSender())
     {
@@ -58,7 +57,7 @@ contract RugTARDS2 is ERC721Enumerable, Ownable {
 
         // Distribute to RTARD holders
         uint256 perTokenShare = amount / totalSupply();
-        for (uint256 i = 1; i < totalSupply(); i++) {
+        for (uint256 i = 1; i < (totalSupply()+1); i++) {
             address holder = ownerOf(i);
             if (holder != address(0) && perTokenShare > 0) {
                 IERC20(token).transfer(holder, perTokenShare);
@@ -73,9 +72,9 @@ contract RugTARDS2 is ERC721Enumerable, Ownable {
         // 1 FTM to rug an NFT
         if(1 ether > msg.value) { revert InvalidPayment(); }
         rugged[tokenId].totalRugged++;
-        rugged[tokenId].lastRugger = _msgSender();
+        rugged[tokenId].lastRugger = msg.sender;
         rugged[tokenId].isRugged = true;
-        emit Rugged(tokenId, _msgSender());
+        emit Rugged(tokenId, msg.sender);
     }
 
     /// @dev Update the beneficiary
