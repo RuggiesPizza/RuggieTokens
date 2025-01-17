@@ -1,13 +1,14 @@
-# Sample Hardhat Project
+<img src="https://github.com/RuggiesPizza/RuggieTokens/blob/dev/images/ruggEtext.png" width="400">
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a Hardhat Ignition module that deploys that contract.
+Ruggie's Pizza token contracts include; $RUGGIE and $RTARD. The ERC-20 token $RUGGIE came first, with it's easter egg rugpull function.
+To raise liquidity for $RUGGIE, the ERC-721 $RTARD was created. $RTARD comes with it's own easter egg rugpull function. All 420 $RTARD NFT's
+can be rugged of their traits, affecting their rarity rank and more.
 
-Try running some of the following tasks:
-
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat ignition deploy ./ignition/modules/Lock.ts
+## Developer Notes
+### Install Requirements
+The first steps are to clone the repository and install dependencies
+```sh
+git clone https://github.com/RuggiesPizza/RuggieTokens.git
+cd RuggieTokens
+npm i --force
 ```
