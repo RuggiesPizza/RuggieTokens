@@ -26,7 +26,7 @@ In repository's root folder run this to test the contract(s):
 npx hardhat test
 ```
 
-#### Solhint
+### Solhint
 Run Solhint "Security and Style Guide validations" scanner on the contract(s):
 ```sh
 solhint 'npx contracts/**/*.sol'
