@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://github.com/RuggiesPizza/RuggieTokens/blob/dev/images/ruggEtext.png" width="750">
+<img src="https://github.com/RuggiesPizza/RuggieTokens/blob/main/images/ruggEtext.png" width="750">
 </p>
 
 [![Smart Contract Lint & Tests](https://github.com/RuggiesPizza/RuggieTokens/actions/workflows/test-lint.yml/badge.svg)](https://github.com/RuggiesPizza/RuggieTokens/actions/workflows/test-lint.yml)
@@ -9,7 +9,7 @@ To raise liquidity for $RUGGIE, the ERC-721 $RTARD was created. $RTARD comes wit
 can be rugged of their traits, affecting their rarity rank and more.
 
 <br><br>
-<img align="left" width="100" height="100" src="https://github.com/RuggiesPizza/RuggieTokens/blob/dev/images/newRuggieLogo.png">
+<img align="left" width="100" height="100" src="https://github.com/RuggiesPizza/RuggieTokens/blob/main/images/newRuggieLogo.png">
 
 $RUGGIE Address:
 ```
@@ -18,7 +18,7 @@ $RUGGIE Address:
 
 <br><br>
 
-<img align="left" width="100" height="100" src="https://github.com/RuggiesPizza/RuggieTokens/blob/dev/images/RTARD.png">
+<img align="left" width="100" height="100" src="https://github.com/RuggiesPizza/RuggieTokens/blob/main/images/RTARD.png">
 
 $RTARD Address:
 ```
