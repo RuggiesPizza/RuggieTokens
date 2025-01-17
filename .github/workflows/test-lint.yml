@@ -1,7 +1,7 @@
 name: Smart Contract Lint & Tests
 
 on:
-  push:
+  pull_request:
     branches: ["main", "dev"]
 
 jobs:

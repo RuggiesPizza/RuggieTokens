@@ -39,14 +39,13 @@ contract RugTARDS2 is ERC721Enumerable, Ownable {
         beneficiary = benef;
     }
 
-
     /// @dev Airdrop $RTARD to holders from Fantom
     /// @param holders list of holder addresses (must be in exact order from Fantom)
     function airdrop(address[] calldata holders) external onlyOwner {
         uint256 length = holders.length;
         if(maxSupply < totalSupply() + length) { revert MintedOut(); }
         for (uint256 i; i < length; i++) {
-            _mint(holders[i], totalSupply());
+            _mint(holders[i], (totalSupply() + 1));
         }
     }
 

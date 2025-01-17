@@ -1,7 +1,7 @@
 import { expect } from "chai";
 import { ethers } from "hardhat";
 
-describe("Access Test", function () {
+describe("Fantom Access Test", function () {
   let RugTARDS: any;
   let Ruggie: any;
   let owner: any;
