@@ -1,4 +1,6 @@
+<p align="center">
 <img src="https://github.com/RuggiesPizza/RuggieTokens/blob/dev/images/ruggEtext.png" width="750">
+</p>
 
 [![Smart Contract Lint & Tests](https://github.com/RuggiesPizza/RuggieTokens/actions/workflows/test-lint.yml/badge.svg)](https://github.com/RuggiesPizza/RuggieTokens/actions/workflows/test-lint.yml)
 
