@@ -22,7 +22,7 @@ $RUGGIE Address:
 
 $RTARD Address:
 ```
-Coming Soon!
+0x98bd87b29ee25902d5ed0a19172cff155666c4eb/nfts
 ```
 <br><br>
 
